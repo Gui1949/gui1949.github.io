@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <style>
+    body {
+      background-color: #282a36;
+    }
     * {
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn {
+      width: 50px;
+      height: 50px;
     }
 
     h1,
@@ -28,15 +38,19 @@
       flex-direction: column;
     }
 
+    body {
+      min-height: 100%;
+    }
+
     #master {
       width: 100%;
       height: 100%;
       background-color: #282a36;
     }
 
-    #navbar {
+    .navbar {
       z-index: 1;
-      position: fixed;
+      position: absolute;
       top: 0;
       width: 100%;
       height: 8vh;
@@ -49,19 +63,55 @@
       justify-content: center;
     }
 
+    .navbar.title-left {
+      justify-content: space-between;
+    }
+
+    .navbar-title {
+      margin-left: 2.5vh;
+    }
+
+    .items-navbar {
+      display: flex;
+      flex-direction: row;
+      margin-right: 2.5vh;
+      justify-content: space-around;
+    }
+
     .card {
-      padding: 2.5vh;
+      padding: 1vh 2.5vh 2.5vh 2.5vh;
       align-items: center;
       margin-top: 2vh;
       overflow-wrap: break-word;
       background-color: #44475a;
       align-self: flex-start;
-      width: 50%;
+      flex: 1;
+      flex-shrink: 1;
       display: block;
       margin-left: auto;
       margin-right: auto;
       border-radius: 1vh;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      height: auto;
+    }
+
+    .card_principal {
+      display: inherit;
+    }
+
+    @media (min-width: 700px) and (orientation: landscape) {
+      .card {
+        width: 45vw;
+      }
+    }
+
+    @media (orientation: portrait) {
+      .card {
+        width: 80vw;
+      }
+      .post_img {
+        height: 70%;
+      }
     }
 
     .avatar {
@@ -73,7 +123,7 @@
     }
 
     .post_img {
-      height: 60vh;
+      height: 60%;
       width: 100%;
       object-fit: contain;
       background-color: #282a36;
@@ -81,10 +131,15 @@
       margin: 1.5vh 0 1vh 0;
     }
 
-    #feedUpperMargin {
+    #feedUpperMargin,
+    #main {
       width: 100%;
       margin-top: 10vh;
       align-items: center;
+    }
+
+    #main {
+      align-items: start;
     }
 
     .descript,
@@ -113,7 +168,6 @@
     .descript_header {
       margin: 0.13vh 0vh 0vh 1vh;
     }
-
     .descript_header > p {
       margin: 0;
     }
@@ -122,14 +176,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script type="text/javascript" src="actions.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Portfólio</title>
+    <title>FloripaJS</title>
   </head>
   <body>
-    <div id="navbar"><h2>Meu Portfólio</h2></div>
+    <div class="navbar"><h2>Meu Portfólio</h2></div>
     <div id="master">
       <div id="feedUpperMargin">
-        <div class="card" id="main">
+        <div class="card card_principal" id="card1">
           <div class="card_header">
             <img
               class="avatar"
@@ -138,7 +193,9 @@
             <div class="descript_header">
               <p><b>Guilherme Floriano</b></p>
               <p>
-                21 anos de idade | Guarulhos-SP | Desenvolvedor e Carinha do T.I
+                23 anos de idade | Caraguatatuba-SP | Analista de Sistemas |
+                Desenvolvedor Web Full Stack | Rest API | React | NextJS | Java
+                | ERP Sankhya | Typescript
               </p>
             </div>
           </div>
@@ -148,7 +205,12 @@
             src="https://giffiles.alphacoders.com/209/209661.gif"
           />
           <p class="descript">
-            Você já chegou a abrir um chamado referente a esse assunto?
+            Tenho cinco anos de experiência com o ERP SANKHYA. atuo no
+            desenvolvimento de módulos e eventos Java, relatórios em iReport e
+            criação de triggers e procedures em MSSQL. Também sou capaz de
+            desenvolver portais internos usando React, Next, NodeJS e TypeScript
+            (esse dois ultimos como back-end), além de criar telas, componentes
+            e dashboards no sistema Sankhya.
           </p>
         </div>
         <div class="card">
@@ -174,19 +236,40 @@
             Bitdefender.
           </p>
           <p class="descript_card"><br /></p>
-          <p class="descript_card">OUTUBRO DE 2020 - PRESENTE</p>
+          <p class="descript_card">OUTUBRO DE 2020 - DEZEMBRO DE 2021</p>
           <p class="descript_card">
             <b>ANALISTA JR. DE T.I,</b> FARMARIN IND. E COMÉRCIO LTDA.
           </p>
           <p class="descript_card">
             Suporte nível 2, Desenvolvimento de aplicações em React JS com
-            backend em NodeJS com Express, criação de telas e dashboards no ERP
+            backend NodeJS/Express, criação de telas e dashboards no ERP
             Sankhya, elaboração de triggers e procedures em SQL, configuração de
             backup em nuvem, criação de relatórios na ferramenta Jaspersoft
             Ireport, gerenciamento de banco de dados, deploy de aplicações em
             HeroKu e Netlify, criação e gerenciamento de websites via Wordpress,
             acompanhamento e elaboração de validação de sistemas
-            computadorizados, para atender a norma RDC 301 (ANVISA).
+            computadorizados, para atender a norma RDC 301 (ANVISA). Suporte
+            geral ao sistema Sankhya.
+          </p>
+          <p class="descript_card"><br /></p>
+          <p class="descript_card">JANEIRO DE 2022 - PRESENTE</p>
+          <p class="descript_card">
+            <b>ANALISTA JR. DE T.I,</b> FARMARIN IND. E COMÉRCIO LTDA.
+          </p>
+          <p class="descript_card">
+            Desenvolvimento de módulos e eventos Java, customizações no sistema
+            SANKHYA, relatórios em iReport, triggers e procedures em MSSQL,
+            desenvolvimento de portais internos utilizando React, Next, NodeJS e
+            TypeScript, criação de telas, componentes e dashboards no sistema
+            Sankhya, integração entre sistemas (Bitrix e RD Station),
+            desenvolvimento de API, desenvolvimento de aplicativos mobile com
+            React Native, elaboração de documentação dos softwares
+            desenvolvidos, suporte aos usuários do sistema Sankhya,
+            desenvolvimento de aplicações web em PHP, configuração de banco de
+            dados MariaDB e configuração de ambiente Linux para aplicações web,
+            configuração e gerenciamento de PaaS, Instalação e gerenciamento de
+            Docker, utilização de Jenkins para CI/CD e criação de Swagger para
+            API REST.
           </p>
         </div>
         <div class="card">
@@ -196,8 +279,12 @@
             2015 – DEZEMBRO DE 2017)
           </p>
           <p class="descript_card">
-            <b>Redes de Computadores</b>, FACULDADE ENIAC (JANEIRO DE 2018 -
-            JULHO DE 2020)
+            <b>Tecnologia em Redes de Computadores</b>, FACULDADE ENIAC (JANEIRO
+            DE 2018 - JULHO DE 2020)
+          </p>
+          <p class="descript_card">
+            <b>Pós Graduação em Engenharia de Software</b>, PUC MINAS (JANEIRO
+            DE 2022 - JULHO DE 2023)
           </p>
         </div>
         <div class="card">
@@ -209,7 +296,10 @@
           <p class="descript_card">Resolução de problemas;</p>
           <p class="descript_card">Inovação;</p>
         </div>
-        <p class="descript_footer">Site criado com FloripaJS</p>
+        <p class="descript_footer">
+          Site criado com
+          <a href="https://github.com/Gui1949/FloripaJS">FloripaJS</a>
+        </p>
       </div>
     </div>
   </body>
